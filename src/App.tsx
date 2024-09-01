@@ -1,24 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  // let name:string;
+  type Person = {
+    name: string;
+    age: number;
+    hasJob?: boolean;
+  }
+
+  let person1: Person = {
+    name: 'afia',
+    age: 52
+  };
+
+  let lotOfPeeps: Person[] = [
+    {
+      name: 'afia',
+      age: 52,
+    },
+    {
+      name: 'wally',
+      age: 96,
+      hasJob: true,
+    }
+  ]
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      hello world
+      <h1>{person1.name}</h1>
+      {
+        lotOfPeeps.map(lot => <div key={lot.name}>
+          <p>{lot.name}</p>
+          <p>{lot.age}</p>
+          <p>{lot.hasJob}</p>
+        </div>)
+      }
     </div>
   );
 }
